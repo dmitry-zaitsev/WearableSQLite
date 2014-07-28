@@ -135,4 +135,14 @@ public class QueryHandler {
         database = null;
     }
 
+    /**
+     * Closes {@link com.github.dmitry.zaitsev.wearablesqlite.QueryHandler}. Might take {@code null}
+     * as an argument.
+     */
+    public static void closeQuietly(QueryHandler handler) {
+        if (handler != null) {
+            handler.close();
+        }
+    }
+
 }

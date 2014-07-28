@@ -180,4 +180,14 @@ public class RemoteSQLAdapter implements MessageApi.MessageListener {
         }
     }
 
+    /**
+     * Closes {@link com.github.dmitry.zaitsev.wearablesqlite.RemoteSQLAdapter}. Might take {@code null}
+     * as an argument.
+     */
+    public static void closeQuietly(RemoteSQLAdapter adapter) {
+        if (adapter != null) {
+            adapter.close();
+        }
+    }
+
 }
