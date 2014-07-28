@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+	    <groupId>org.sonatype.oss</groupId>
+	    <artifactId>oss-parent</artifactId>
+	    <version>7</version>
+	</parent>
+
+	<groupId>com.github.dmitry-zaitsev.wearable-sqlite</groupId>
+    <artifactId>parent</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0.0</version>
+
+    <name>WearableSQLite (Parent)</name>
+    <description>Wrapper for Wearable APIs to work with SQLite database across device boundaries.</description>
+    <url>https://github.com/dmitry-zaitsev/WearableSQLite</url>
+    <inceptionYear>2014</inceptionYear>
+
+    <modules>
+        <module>library</module>
+    </modules>
+
+    <scm>
+        <url>https://github.com/dmitry-zaitsev/WearableSQLite</url>
+        <connection>scm:git:git://github.com/dmitry-zaitsev/WearableSQLite.git</connection>
+        <developerConnection>scm:git:git@github.com:dmitry-zaitsev/WearableSQLite.git</developerConnection>
+    </scm>
+
+    <developers>
+        <developer>
+            <name>Dmitry Zaytsev</name>
+            <email>dmitry.zaicew@gmail.com</email>
+            <id>dmitry.zaicew</id>
+            <url>https://plus.google.com/+DmitryZaytsevTheFirst</url>
+            <timezone>+1</timezone>
+            <roles>
+                <role>developer</role>
+            </roles>
+        </developer>
+    </developers>
+
+    <licenses>
+        <license>
+            <name>Apache License Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <organization>
+        <name>Dmitry Zaytsev</name>
+        <url>https://plus.google.com/+DmitryZaytsevTheFirst</url>
+    </organization>
+
+    <issueManagement>
+        <system>GitHub Issues</system>
+        <url>https://github.com/dmitry-zaitsev/WearableSQLite/issues</url>
+    </issueManagement>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <java.version>1.6</java.version>
+        <android.version>4.4W_r1</android.version>
+        <android.platform>20</android.platform>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+	            <groupId>android</groupId>
+	            <artifactId>android</artifactId>
+	            <version>${android.version}</version>
+	            <scope>provided</scope>
+	        </dependency>
+
+	        <dependency>
+	            <groupId>com.google.android.gms</groupId>
+	            <artifactId>google-play-services</artifactId>
+	            <version>[18.0.0,)</version>
+	            <type>jar</type>
+	        </dependency>
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>3.3.2</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.1</version>
+                    <configuration>
+                        <source>${java.version}</source>
+                        <target>${java.version}</target>
+                    </configuration>
+                </plugin>
+
+                <plugin>
+                    <groupId>com.jayway.maven.plugins.android.generation2</groupId>
+                    <artifactId>android-maven-plugin</artifactId>
+                    <version>3.9.0-rc.2</version>
+                    <extensions>true</extensions>
+                    <configuration>
+	                    <sdk>
+	                        <platform>${android.platform}</platform>
+	                    </sdk>
+	                </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.1</version>
+                <configuration>
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
